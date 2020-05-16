@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>life_Log</title>
+  <title>使用Pandas处理Excel操作总结 | life_Log</title>
   
   
   
@@ -49,39 +49,14 @@
 
     <div class="container">
         <div data-pager-shell>
-            <ul class="Index">
-  
-  
-    <li>
-      <article class='ListView'>
-    <header class="title">
-      
-        <h1>
-          <a href="/2020/05/16/%E4%BD%BF%E7%94%A8Pandas%E5%A4%84%E7%90%86Excel%E6%93%8D%E4%BD%9C%E6%80%BB%E7%BB%93/">使用Pandas处理Excel操作总结</a>
-        </h1>
-      
-      <div class='ListMeta'>
-  <time datetime="2020-05-16T14:47:35.000Z" itemprop="datePublished">
-    2020-05-16
-  </time>
-  
-  | 
-  <ul>
-    
-  <li class="meta-text">
-  { <a href="/tags/Python/">Python</a> }
-  </li>
-
-
-  </ul>
-  
-  
-</div>
-
+            <div>
+  <article class='ContentView'>
+    <header class='PageTitle'>
+        <h1>使用Pandas处理Excel操作总结</h1>
     </header>
-    <div>
-      
-        <p>去年年底从开发岗转到维护岗后，工作中需要处理大量的 Excel 表格，由于之前做开发的时候很少接触 Excel，对于它的认知也就是会使用 SUM 这些简单的公式，VBA 更是没有接触过了，面对大量的 Excel 文档和他们动辄几万行的数据，人工处理实在是太浪费时间了，还好之前自学过一点 Python，于是便开始了自我救赎之旅。</p>
+
+    <section>
+      <p>去年年底从开发岗转到维护岗后，工作中需要处理大量的 Excel 表格，由于之前做开发的时候很少接触 Excel，对于它的认知也就是会使用 SUM 这些简单的公式，VBA 更是没有接触过了，面对大量的 Excel 文档和他们动辄几万行的数据，人工处理实在是太浪费时间了，还好之前自学过一点 Python，于是便开始了自我救赎之旅。</p>
 <p>研究了几个可以用于处理 Excel 的模块之后，我最终选择了 Pandas 和 openpyxl</p>
 <p>Pandas 主要用来处理数据，openpyxl 用于处理样式和保存文档。</p>
 <p>这里只记录一下工作过程中经常用到的几个方法。</p>
@@ -134,53 +109,35 @@
 <h2 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df[<span class="number">3</span>, <span class="string">'列标签'</span>] = <span class="string">'一个新值'</span></span><br></pre></td></tr></table></figure>
 
 
-      
-    </div>
-</article>
 
-    </li>
-  
-    <li>
-      <article class='ListView'>
-    <header class="title">
       
-        <h1>
-          <a href="/2020/03/21/hello-world/">Hello World</a>
-        </h1>
-      
-      <div class='ListMeta'>
-  <time datetime="2020-03-20T17:19:56.000Z" itemprop="datePublished">
-    2020-03-21
-  </time>
-  
-  | 
-  <ul>
+
+    </section>
     
+      <section class='ArticleMeta'>
+          <div>
+            发布于&nbsp;
+            <time datetime="2020-05-16T14:47:35.000Z" itemprop="datePublished">
+              2020-05-16
+            </time>
+          </div>
+          
+            <div>
+              tags: 
   <li class="meta-text">
-  { <a href="/tags/misc/">misc</a> }
+  { <a href="/tags/Python/">Python</a> }
   </li>
 
 
-  </ul>
-  
-  
-</div>
-
-    </header>
-    <div>
-      
-        <p>你好，这是我的第一篇个人博客，主要记录一些软件工程，编码的心得，还有相关工具使用方法。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"Hello,world!"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
+            </div>
+          
+      </section>
+    
+    
 </article>
 
-    </li>
   
-</ul>
-
+</div>
 
             <footer>
     <div>© 2020 - antisamael </div>
