@@ -1,419 +1,166 @@
+
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
-
-  
-  <title>Coding Life.log</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Coding Life.log">
-<meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name" content="Coding Life.log">
-<meta property="og:locale" content="zh_CN">
-<meta property="article:author" content="antisamael">
-<meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/atom.xml" title="Coding Life.log" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  
-<link rel="stylesheet" href="/css/style.css">
-
-<meta name="generator" content="Hexo 4.2.0"></head>
-
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Coding Life.log</a>
-      </h1>
-      
-        <h2 id="subtitle-wrap">
-          <a href="/" id="subtitle">&gt;_</a>
-        </h2>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main">
-  
-    <article id="post-学渣也来刷leetcode（一）" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/05/23/%E5%AD%A6%E6%B8%A3%E4%B9%9F%E6%9D%A5%E5%88%B7leetcode%EF%BC%88%E4%B8%80%EF%BC%89/" class="article-date">
-  <time datetime="2020-05-22T16:18:07.000Z" itemprop="datePublished">2020-05-23</time>
-</a>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>&gt;_ | Coding Life.log</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.17.1/styles/railscasts.css">
+    <link rel="stylesheet" href="/lightx.css"/>
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="apple-touch-icon" href="/icon512.png">
+    <meta name="theme-color" content="#ffffff"/>
     
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/23/%E5%AD%A6%E6%B8%A3%E4%B9%9F%E6%9D%A5%E5%88%B7leetcode%EF%BC%88%E4%B8%80%EF%BC%89/">学渣也来刷leetcode（一）</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>算法还是蛮有趣的，虽然已经是个已经快要被干掉的大龄开发（转维护）了，趁着这段被放置的一点都不忙的时候，给自己找点事情做做。<br>作为一个全方面都是弱鸡，特别数学更是绝望的学渣，也来刷刷 leetcode 了。</p>
-<p>因为对自己还是有点自知之明的，所以从 Array 的 Easy 开始刷起。</p>
-<p>首先是最简单的第一题，<a href="https://leetcode.com/problems/two-sum/" target="_blank" rel="noopener">1.Two-Sum</a><br>就是求数组里面的元素如果相加等于9，返回数组的下标，而且限定了会出一个结果。<br>看题目真的是好简单呢，凭直觉写下了下面的代码：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">twoSum</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">result</span><span class="params">(<span class="number">2</span>)</span></span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.size(); i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> a = nums[i];</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt; nums.size(); j++) &#123;</span><br><span class="line">                <span class="keyword">int</span> b = nums[j];</span><br><span class="line">                <span class="keyword">if</span> ((a + b) == target) &#123;</span><br><span class="line">                    result = &#123;i, j&#125;;</span><br><span class="line">                    <span class="keyword">return</span> result;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>提交，过了，后来没有然后了，直到看到了<a href="https://leetcode.com/problems/pairs-of-songs-with-total-durations-divisible-by-60/" target="_blank" rel="noopener">1010. Pairs of Songs With Total Durations Divisible by 60</a>这题……<br>这题翻译过来大致意思就是计算出将数组里面的一对数字相加后如果能被60整除的这些对的数量。<br>和 Two Sum 差不多，一眼看上去很简单，于是写了，写法和 Two Sum 差不多，两个 for 暴力怼上去算。<br>提交，失败，因为超时了……</p>
-<p>这个时候回头看 Two Sum，才发现大O复杂度为 O(n^2^)，确实是个十分费时的算法，Two Sum 能过也只是运气好限定了只有一个结果而已吧。<br>然后看看发布后的细节：</p>
-<blockquote>
-<p>Runtime: 656 ms, faster than 14.84% of C++ online submissions for Two Sum.</p>
-</blockquote>
-<p>确实是很慢呢……</p>
-<p>先弄到复杂度 O(n) 把！用空间换时间，把索引存到 map 里面去然后直接去找，于是改写一下……</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">twoSum</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;nums, <span class="keyword">int</span> target)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; result;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; val_index;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">size_t</span> i = <span class="number">0</span>; i &lt; nums.size(); i++) &#123;</span><br><span class="line">            val_index[nums[i]] = i;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;::iterator it;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">size_t</span> i = <span class="number">0</span>; i &lt; nums.size(); i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> other_num =  target - nums[i];</span><br><span class="line">            it = val_index.find(other_num);</span><br><span class="line">            <span class="keyword">if</span> ((it != val_index.end()) &amp;&amp; (it-&gt;second != i)) &#123;</span><br><span class="line">                result.push_back(i);</span><br><span class="line">                result.push_back(it-&gt;second);</span><br><span class="line">                <span class="keyword">return</span> result;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>这应该是最普通的思路了，虽然时间快了不少，空间真是占了好大了。而且这个算法不是最快的……</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/05/23/%E5%AD%A6%E6%B8%A3%E4%B9%9F%E6%9D%A5%E5%88%B7leetcode%EF%BC%88%E4%B8%80%EF%BC%89/" data-id="ckaiivmzr0000ogmtfw4t3nhh" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95-C/" rel="tag">算法, C++</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-配置好用又个性的-Windows-Terminal" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/05/20/%E9%85%8D%E7%BD%AE%E5%A5%BD%E7%94%A8%E5%8F%88%E4%B8%AA%E6%80%A7%E7%9A%84-Windows-Terminal/" class="article-date">
-  <time datetime="2020-05-20T15:58:55.000Z" itemprop="datePublished">2020-05-20</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/20/%E9%85%8D%E7%BD%AE%E5%A5%BD%E7%94%A8%E5%8F%88%E4%B8%AA%E6%80%A7%E7%9A%84-Windows-Terminal/">配置好用又个性的 Windows Terminal</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Windows Terminal 1.0 发布了，用了一段时间的预览版，还不错，记录和分享一下它的配置了。</p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>WT 项目的源码目前在 GitHub 上，地址是：<a href="https://github.com/microsoft/terminal" target="_blank" rel="noopener">https://github.com/microsoft/terminal</a><br>官方推荐的安装方式是从 Microsoft Store 上安装，也可以使用 Chocolatey 安装，如果想要在不支持外网的工作PC使用，因为目前没有安装包，只能下载源码编译了，详细方法先留个坑，后面再发文介绍。</p>
-<p>安装好以后，第一印象是：终于官方支持多标签页的终端了！<br>然后还支持不同的入口，除了默认的 Cmd 和 Powershell，通过修改配置，还支持快速进入 WSL 和 VPS……<br>支持设置背景和背景透明度，可以大大提升 WT 的颜值，我已经把我的 MobaXterm 给删了。</p>
-<h2 id="配置-个性化"><a href="#配置-个性化" class="headerlink" title="配置 / 个性化"></a>配置 / 个性化</h2><p>WT 的配置文件分为 4 个部门，一个是全局配置，另外 3 个分别配置 WT 的入口、主题、快捷键；<br>下面各个介绍一下：</p>
-<p>全局配置中常用的配置项大致就这么几个：</p>
-<ul>
-<li>defaultProfile: 打开 WT 后默认的入口 guid</li>
-<li>requestedTheme: 适配亮/暗主题，我是设置为 “system” 跟随系统了</li>
-<li>copyOnSelect: 选中文字后自动复制，建议设置为 true</li>
-</ul>
-<p>入口的配置：</p>
-<p>这里分享一下我的 Powershell 的配置</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="comment">// Make changes here to the powershell.exe profile</span></span><br><span class="line">    <span class="attr">"guid"</span>: <span class="string">"&#123;61c54bbd-c2c6-5271-96e7-009a87ff44bf&#125;"</span>,</span><br><span class="line">    <span class="attr">"name"</span>: <span class="string">"Windows PowerShell"</span>,</span><br><span class="line">    <span class="attr">"commandline"</span>: <span class="string">"powershell.exe"</span>,</span><br><span class="line">    <span class="attr">"hidden"</span>: <span class="literal">false</span>,</span><br><span class="line">    <span class="attr">"fontFace"</span>: <span class="string">"Sarasa Mono T SC"</span>,</span><br><span class="line">    <span class="attr">"fontSize"</span>:<span class="number">11</span>,</span><br><span class="line">    <span class="attr">"backgroundImage"</span>:<span class="string">"D:/OneDrive/Pictures/Wallpaper/winx/Untitled Goose Wallpaper.png"</span>,</span><br><span class="line">    <span class="attr">"backgroundImageStretchMode"</span>: <span class="string">"uniformToFill"</span>,</span><br><span class="line">    <span class="attr">"backgroundImageOpacity"</span>: <span class="number">0.6</span>,</span><br><span class="line">    <span class="attr">"colorScheme"</span>:<span class="string">"One Half Dark"</span></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
-
-<p>还有 VPS 的：</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"guid"</span>: <span class="string">"&#123;a9fc51e9-101f-4548-aad9-3d9e7a934801&#125;"</span>,</span><br><span class="line">    <span class="attr">"hidden"</span>: <span class="literal">false</span>,</span><br><span class="line">    <span class="attr">"name"</span>: <span class="string">"Bandwagon VPS"</span>,</span><br><span class="line">    <span class="attr">"commandline"</span>: <span class="string">"powershell.exe ssh -p xxxxx root@xxx.xxx.xxx.xxx"</span>,</span><br><span class="line">    <span class="attr">"fontFace"</span>: <span class="string">"Sarasa Mono T SC"</span>,</span><br><span class="line">    <span class="attr">"fontSize"</span>:<span class="number">11</span>,</span><br><span class="line">    <span class="attr">"useAcrylic"</span>:<span class="literal">true</span>,</span><br><span class="line">    <span class="attr">"acrylicOpacity"</span>:<span class="number">1</span>,</span><br><span class="line">    <span class="attr">"icon"</span>:<span class="string">"D:\\OneDrive\\Pictures\\Icon\\icons8-centos-48.png"</span>,</span><br><span class="line">    <span class="attr">"colorScheme"</span>:<span class="string">"Gruvbox Dark"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>唯一的GUID可以通过网站<a href="https://www.uuidgenerator.net/" target="_blank" rel="noopener">在线生成</a></p>
-<p>配色方案：</p>
-<p><a href="https://github.com/mbadolato/iTerm2-Color-Schemes" target="_blank" rel="noopener">iTerm2</a> 的代码仓中有为 WT 配置好的配色方案，我们将方案复制到我们的配置文件中即可。</p>
-<h2 id="增强"><a href="#增强" class="headerlink" title="增强"></a>增强</h2><p>pshazz</p>
-<h2 id="我的-WT-配置"><a href="#我的-WT-配置" class="headerlink" title="我的 WT 配置"></a>我的 WT 配置</h2><!-- Get UTF-8 Size (ANSI C) -->
-<!-- Begin -->
-<script src="https://gist.github.com/antisamael/46fb0d30a828721c060205c98aacf299.js"></script>
-<!-- End -->
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/05/20/%E9%85%8D%E7%BD%AE%E5%A5%BD%E7%94%A8%E5%8F%88%E4%B8%AA%E6%80%A7%E7%9A%84-Windows-Terminal/" data-id="ckaiivn0q0009ogmt0zm661ed" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tool/" rel="tag">Tool</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-使用Pandas处理Excel操作总结" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/05/16/%E4%BD%BF%E7%94%A8Pandas%E5%A4%84%E7%90%86Excel%E6%93%8D%E4%BD%9C%E6%80%BB%E7%BB%93/" class="article-date">
-  <time datetime="2020-05-16T14:47:35.000Z" itemprop="datePublished">2020-05-16</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/16/%E4%BD%BF%E7%94%A8Pandas%E5%A4%84%E7%90%86Excel%E6%93%8D%E4%BD%9C%E6%80%BB%E7%BB%93/">使用Pandas处理Excel操作总结</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>去年年底从开发岗转到维护岗后，工作中需要处理大量的 Excel 表格，由于之前做开发的时候很少接触 Excel，对于它的认知也就是会使用 SUM 这些简单的公式，VBA 更是没有接触过了，面对大量的 Excel 文档和他们动辄几万行的数据，人工处理实在是太浪费时间了，还好之前自学过一点 Python，于是便开始了自我救赎之旅。</p>
-<p>研究了几个可以用于处理 Excel 的模块之后，我最终选择了 Pandas 和 openpyxl</p>
-<p>Pandas 主要用来处理数据，openpyxl 用于处理样式和保存文档。</p>
-<p>这里只记录一下工作过程中经常用到的几个方法。</p>
-<h2 id="读取-Excel-文件"><a href="#读取-Excel-文件" class="headerlink" title="读取 Excel 文件"></a>读取 Excel 文件</h2><p>读取 Excel 文件的方法是 <code>read_excel()</code></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">fd = pd.read_excel(<span class="string">"Workbook.xlsx"</span>, <span class="string">"SheetX"</span>)</span><br><span class="line">print(fd)</span><br></pre></td></tr></table></figure>
-
-<p>第一个参数填写 Excel 文件的路径，第二个参数填写需要打开的标签页；第二个参数如果不填，则默认打开第一个标签页。</p>
-<h2 id="保存-Excel-文件"><a href="#保存-Excel-文件" class="headerlink" title="保存 Excel 文件"></a>保存 Excel 文件</h2><p>保存 Excel 文件的方法方式 <code>to_excel()</code></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fd.to_excel(<span class="string">"Workbook_copy.xlsx"</span>)</span><br></pre></td></tr></table></figure>
-
-<p>需要注意的是，保存的excel是不带样式的，所以我一般只用它来做测试查看结果是否符合预期，要输出可以交付的文档的时候，一般使用都是先使用 pandas 得到想要的数据，然后使用 openpyxl 保存。</p>
-<p>另外，默认的保存方式得到的 Excel 表格是带有 index （可以理解为原始数据的行号，不过是以 0 开头）和 header （列标），如果不需要它，那么再后面加上参数 <code>index=None</code> 和 <code>header=None</code> 即可。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fd.to_excel(<span class="string">"Workbook_copy.xlsx, index=None, header=None"</span>)</span><br></pre></td></tr></table></figure>
-
-<h2 id="选取单元格内容"><a href="#选取单元格内容" class="headerlink" title="选取单元格内容"></a>选取单元格内容</h2><p>使用 <code>loc</code> 和 <code>iloc</code> 方法， 他们之间的区别是 <code>loc</code> 是基于行标签和列标签， <code>iloc</code> 基于行索引和列索引。</p>
-<p>读取一行</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fd.loc(<span class="number">1</span>, :)</span><br></pre></td></tr></table></figure>
-
-<p>读取一列</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fd[<span class="string">'列标签1'</span>]  <span class="comment"># 通常的做法</span></span><br><span class="line">fd.loc(:, [<span class="string">'列标签1'</span>])  <span class="comment"># 还可以这么做</span></span><br></pre></td></tr></table></figure>
-
-<p>读取一行一列</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fd.loc[<span class="number">3</span>,[<span class="string">'列标签1'</span>]]  <span class="comment"># or</span></span><br><span class="line">fd.iloc[<span class="number">3</span>, <span class="number">0</span>]</span><br></pre></td></tr></table></figure>
-
-<p>读取多行多列</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fd.loc[[<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>], [<span class="string">'列标签1'</span>, <span class="string">'列标签2'</span>]]  <span class="comment"># or</span></span><br><span class="line">fd.iloc[[<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>], [<span class="number">0</span>, <span class="number">1</span>]]</span><br></pre></td></tr></table></figure>
-
-<h2 id="读取某列所有元素"><a href="#读取某列所有元素" class="headerlink" title="读取某列所有元素"></a>读取某列所有元素</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vals = fd.loc(<span class="string">'列标签'</span>).to_list()</span><br></pre></td></tr></table></figure>
-
-<h2 id="筛选"><a href="#筛选" class="headerlink" title="筛选"></a>筛选</h2><p>比如我们的表格中有一列的索引名称为“是否安装”，想选取值为 N 的数据：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data_y = data[data[<span class="string">'是否安装'</span>] == <span class="string">'N'</span>]</span><br></pre></td></tr></table></figure>
-
-<p>使用 <code>&amp;</code> 和 <code>|</code> 可以使用更多的筛选条件，比如：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data_y = data[(data[<span class="string">'是否安装'</span>] == <span class="string">'Y'</span>) &amp; (data[<span class="string">'用途'</span>] == <span class="string">'效率'</span>)]</span><br></pre></td></tr></table></figure>
-
-<p>对于更复杂的筛选条件，使用 <code>apply</code> ，先用简单的例子来说明一下，比如还是上文的选取索引值名称为“是否安装”里面 N 的数据，如果要用 <code>apply</code> 方法实现的话：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">IsInstalled</span><span class="params">(val)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> val == <span class="string">'N</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">data_y = data[data['</span>是否安装<span class="string">'].apply(IsInstalled)]</span></span><br></pre></td></tr></table></figure>
-
-<p><code>apply</code> 可以带有参数，更为灵活</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">IsInstalledArgs</span><span class="params">(val, is_install)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> val == is_install</span><br><span class="line"></span><br><span class="line">data_y = data[data[<span class="string">'是否安装'</span>].apply(IsInstalledArgs, args=(<span class="string">'N'</span>,))]</span><br></pre></td></tr></table></figure>
-
-<h2 id="统计"><a href="#统计" class="headerlink" title="统计"></a>统计</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">df.shape  <span class="comment"># 返回数据的行列</span></span><br><span class="line">df.count  <span class="comment"># 返回每一列中非空值的个数</span></span><br><span class="line">len(df[<span class="string">'Column'</span>].index.values)  <span class="comment"># 数据的条数</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df[<span class="number">3</span>, <span class="string">'列标签'</span>] = <span class="string">'一个新值'</span></span><br></pre></td></tr></table></figure>
-
-<p>Pandas 还有很多方法，但以上方法对于我目前日常处理 Excel 数据的操作是够用的了，后面遇到了再补充吧。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/05/16/%E4%BD%BF%E7%94%A8Pandas%E5%A4%84%E7%90%86Excel%E6%93%8D%E4%BD%9C%E6%80%BB%E7%BB%93/" data-id="ckaiivn0h0006ogmt97m09qix" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/03/21/hello-world/" class="article-date">
-  <time datetime="2020-03-20T17:19:56.000Z" itemprop="datePublished">2020-03-21</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/21/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>你好，这是我的第一篇个人博客，主要记录一些软件工程，编码的心得，还有相关工具使用方法。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"Hello,world!"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/21/hello-world/" data-id="ckaiivn070003ogmt0pf5euhq" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/misc/" rel="tag">misc</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签</h3>
-    <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tool/" rel="tag">Tool</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/misc/" rel="tag">misc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95-C/" rel="tag">算法, C++</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签云</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/Tool/" style="font-size: 10px;">Tool</a> <a href="/tags/misc/" style="font-size: 10px;">misc</a> <a href="/tags/%E7%AE%97%E6%B3%95-C/" style="font-size: 10px;">算法, C++</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">归档</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">最新文章</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2020/05/23/%E5%AD%A6%E6%B8%A3%E4%B9%9F%E6%9D%A5%E5%88%B7leetcode%EF%BC%88%E4%B8%80%EF%BC%89/">学渣也来刷leetcode（一）</a>
-          </li>
-        
-          <li>
-            <a href="/2020/05/20/%E9%85%8D%E7%BD%AE%E5%A5%BD%E7%94%A8%E5%8F%88%E4%B8%AA%E6%80%A7%E7%9A%84-Windows-Terminal/">配置好用又个性的 Windows Terminal</a>
-          </li>
-        
-          <li>
-            <a href="/2020/05/16/%E4%BD%BF%E7%94%A8Pandas%E5%A4%84%E7%90%86Excel%E6%93%8D%E4%BD%9C%E6%80%BB%E7%BB%93/">使用Pandas处理Excel操作总结</a>
-          </li>
-        
-          <li>
-            <a href="/2020/03/21/hello-world/">Hello World</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2020 antisamael<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
+  <meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="Coding Life.log" type="application/atom+xml">
+</head>
+  <body>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function () {
+          navigator.serviceWorker.register('/sw.js', {scope: '/'})
+            .then(function (registration) {
+              // console.log('ServiceWorker registration successful with scope: ', registration.scope);
+            })
+            .catch(function (err) {
+              console.log('ServiceWorker registration failed: ', err);
+            });
+        });
+      }
+    </script>
+  <div id="page-container">
+    <div id="content-wrap">
+      <div class="wrapper">
+        <div class="container">
+            <nav>
+    <ul>
+      <li><a href="/">Coding Life.log</a></li>
+      <li><a href="/archives">Archives</a></li>
+      <li><a href="/about">About</a></li>
+    </ul>
 </nav>
+
+            
     
+    <div class="card" onclick="location.href='/2020/05/23/%E5%AD%A6%E6%B8%A3%E4%B9%9F%E6%9D%A5%E5%88%B7leetcode%EF%BC%88%E4%B8%80%EF%BC%89/'">
+      <div class="card-title">
+        学渣也来刷leetcode（一）
+      </div>
+      <div class="card-tag">
+        
+        <span class="badge" onclick="event.stopPropagation();location.href='/tags/算法,-C++'">算法, C++</span>
+        
+        <span class="badge" onclick="event.stopPropagation();location.href='/archives/2020/05'">2020-05-23</span>
+        
+      </div>
+      <div class="card-text">
+        
+          算法还是蛮有趣的，虽然已经是个已经快要被干掉的大龄开发（转维护）了，趁着这段被放置的一点都不忙的时候，给自己找点事情做做。作为一个全方面都是弱鸡，特别数学更是绝望的学渣，也来刷刷 leetcode 了。
+因为对自己还是有点自知之明的，所以从 Array 的 Easy 开始刷起。
+首先是最简单 ...
+        
+      </div>
+    </div>
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <div class="card" onclick="location.href='/2020/05/20/%E9%85%8D%E7%BD%AE%E5%A5%BD%E7%94%A8%E5%8F%88%E4%B8%AA%E6%80%A7%E7%9A%84-Windows-Terminal/'">
+      <div class="card-title">
+        配置好用又个性的 Windows Terminal
+      </div>
+      <div class="card-tag">
+        
+        <span class="badge" onclick="event.stopPropagation();location.href='/tags/Tool'">Tool</span>
+        
+        <span class="badge" onclick="event.stopPropagation();location.href='/archives/2020/05'">2020-05-20</span>
+        
+      </div>
+      <div class="card-text">
+        
+          Windows Terminal 1.0 发布了，用了一段时间的预览版，还不错，记录和分享一下它的配置了。
+安装WT 项目的源码目前在 GitHub 上，地址是：https://github.com/microsoft/terminal官方推荐的安装方式是从 Microsoft Store  ...
+        
+      </div>
+    </div>
 
+    <div class="card" onclick="location.href='/2020/05/16/%E4%BD%BF%E7%94%A8Pandas%E5%A4%84%E7%90%86Excel%E6%93%8D%E4%BD%9C%E6%80%BB%E7%BB%93/'">
+      <div class="card-title">
+        使用Pandas处理Excel操作总结
+      </div>
+      <div class="card-tag">
+        
+        <span class="badge" onclick="event.stopPropagation();location.href='/tags/Python'">Python</span>
+        
+        <span class="badge" onclick="event.stopPropagation();location.href='/archives/2020/05'">2020-05-16</span>
+        
+      </div>
+      <div class="card-text">
+        
+          去年年底从开发岗转到维护岗后，工作中需要处理大量的 Excel 表格，由于之前做开发的时候很少接触 Excel，对于它的认知也就是会使用 SUM 这些简单的公式，VBA 更是没有接触过了，面对大量的 Excel 文档和他们动辄几万行的数据，人工处理实在是太浪费时间了，还好之前自学过一点 Py ...
+        
+      </div>
+    </div>
 
-  
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+    <div class="card" onclick="location.href='/2020/03/21/hello-world/'">
+      <div class="card-title">
+        Hello World
+      </div>
+      <div class="card-tag">
+        
+        <span class="badge" onclick="event.stopPropagation();location.href='/tags/misc'">misc</span>
+        
+        <span class="badge" onclick="event.stopPropagation();location.href='/archives/2020/03'">2020-03-21</span>
+        
+      </div>
+      <div class="card-text">
+        
+          你好，这是我的第一篇个人博客，主要记录一些软件工程，编码的心得，还有相关工具使用方法。
+#include &lt;iostream&gt;
+using namespace std;
 
-  
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
+int main()
+{
+    cout &lt;&lt; &quot;Hello,world!&quot ...
+        
+      </div>
+    </div>
+ 
 
+<div class="paginator">
+    
+        <div class="prev" style="visibility: hidden;">PREV</div>
+    
+    
+    
+        <div class="next" style="visibility: hidden;">NEXT</div>
+    
+</div>
 
+        </div>
+      </div>
+    </div>
+    <div id="footer">
+      <div class="wrapper">
+        <div class="container">
+          
+<button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">TOP</button>
+<footer>
+    <div>
+        <p>
+            © 2020 <a href="http://yoursite.com">antisamael</a>.
+            Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>.
+            Theme <a href="https://github.com/songquanpeng/hexo-theme-lightx" target="_blank" rel="noopener">lightx</a>.
+            
+        </p>
+    </div>
+</footer>
 
-
-<script src="/js/script.js"></script>
-
-
-
-
+        </div>
+      </div>
+    </div>
   </div>
-</body>
+  
+  
+  <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@latest/build/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  </body>
 </html>
