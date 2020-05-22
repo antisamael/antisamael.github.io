@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-05-20T17:49:42.287Z</updated>
+  <updated>2020-05-22T18:10:22.179Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>学渣也来刷leetcode（一）</title>
+    <link href="http://yoursite.com/2020/05/23/%E5%AD%A6%E6%B8%A3%E4%B9%9F%E6%9D%A5%E5%88%B7leetcode%EF%BC%88%E4%B8%80%EF%BC%89/"/>
+    <id>http://yoursite.com/2020/05/23/%E5%AD%A6%E6%B8%A3%E4%B9%9F%E6%9D%A5%E5%88%B7leetcode%EF%BC%88%E4%B8%80%EF%BC%89/</id>
+    <published>2020-05-22T16:18:07.000Z</published>
+    <updated>2020-05-22T18:10:22.179Z</updated>
+    
+    <content type="html"><![CDATA[<p>算法还是蛮有趣的，虽然已经是个已经快要被干掉的大龄开发（转维护）了，趁着这段被放置的一点都不忙的时候，给自己找点事情做做。<br>作为一个全方面都是弱鸡，特别数学更是绝望的学渣，也来刷刷 leetcode 了。</p><p>因为对自己还是有点自知之明的，所以从 Array 的 Easy 开始刷起。</p><p>首先是最简单的第一题，<a href="https://leetcode.com/problems/two-sum/" target="_blank" rel="noopener">1.Two-Sum</a><br>就是求数组里面的元素如果相加等于9，返回数组的下标，而且限定了会出一个结果。<br>看题目真的是好简单呢，凭直觉写下了下面的代码：</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">twoSum</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">result</span><span class="params">(<span class="number">2</span>)</span></span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.size(); i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> a = nums[i];</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt; nums.size(); j++) &#123;</span><br><span class="line">                <span class="keyword">int</span> b = nums[j];</span><br><span class="line">                <span class="keyword">if</span> ((a + b) == target) &#123;</span><br><span class="line">                    result = &#123;i, j&#125;;</span><br><span class="line">                    <span class="keyword">return</span> result;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><p>提交，过了，后来没有然后了，直到看到了<a href="https://leetcode.com/problems/pairs-of-songs-with-total-durations-divisible-by-60/" target="_blank" rel="noopener">1010. Pairs of Songs With Total Durations Divisible by 60</a>这题……<br>这题翻译过来大致意思就是计算出将数组里面的一对数字相加后如果能被60整除的这些对的数量。<br>和 Two Sum 差不多，一眼看上去很简单，于是写了，写法和 Two Sum 差不多，两个 for 暴力怼上去算。<br>提交，失败，因为超时了……</p><p>这个时候回头看 Two Sum，才发现大O复杂度为 O(n^2^)，确实是个十分费时的算法，Two Sum 能过也只是运气好限定了只有一个结果而已吧。<br>然后看看发布后的细节：</p><blockquote><p>Runtime: 656 ms, faster than 14.84% of C++ online submissions for Two Sum.</p></blockquote><p>确实是很慢呢……</p><p>先弄到复杂度 O(n) 把！用空间换时间，把索引存到 map 里面去然后直接去找，于是改写一下……</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">twoSum</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;nums, <span class="keyword">int</span> target)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; result;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; val_index;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">size_t</span> i = <span class="number">0</span>; i &lt; nums.size(); i++) &#123;</span><br><span class="line">            val_index[nums[i]] = i;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;::iterator it;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">size_t</span> i = <span class="number">0</span>; i &lt; nums.size(); i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> other_num =  target - nums[i];</span><br><span class="line">            it = val_index.find(other_num);</span><br><span class="line">            <span class="keyword">if</span> ((it != val_index.end()) &amp;&amp; (it-&gt;second != i)) &#123;</span><br><span class="line">                result.push_back(i);</span><br><span class="line">                result.push_back(it-&gt;second);</span><br><span class="line">                <span class="keyword">return</span> result;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><p>这应该是最普通的思路了，虽然时间快了不少，空间真是占了好大了。而且这个算法不是最快的……</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;算法还是蛮有趣的，虽然已经是个已经快要被干掉的大龄开发（转维护）了，趁着这段被放置的一点都不忙的时候，给自己找点事情做做。&lt;br&gt;作为一个全方面都是弱鸡，特别数学更是绝望的学渣，也来刷刷 leetcode 了。&lt;/p&gt;
+&lt;p&gt;因为对自己还是有点自知之明的，所以从 Array
+      
+    
+    </summary>
+    
+    
+    
+      <category term="算法, C++" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95-C/"/>
+    
+  </entry>
   
   <entry>
     <title>配置好用又个性的 Windows Terminal</title>
