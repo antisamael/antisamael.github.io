@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-06-22T18:06:52.791Z</updated>
+  <updated>2020-06-22T18:41:11.031Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>简历模板</title>
+    <link href="http://yoursite.com/2020/06/23/%E7%AE%80%E5%8E%86%E6%A8%A1%E6%9D%BF/"/>
+    <id>http://yoursite.com/2020/06/23/%E7%AE%80%E5%8E%86%E6%A8%A1%E6%9D%BF/</id>
+    <published>2020-06-22T18:19:44.000Z</published>
+    <updated>2020-06-22T18:41:11.031Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="技术能力"><a href="#技术能力" class="headerlink" title="技术能力"></a>技术能力</h2><p>我熟悉<strong>C语言</strong>，能熟练使用指针；</p><p>我熟悉<strong>C++</strong>语言很多特性和库，如 <strong>OO</strong>，<strong>泛型</strong>，和 C++ 的常用库，如 <strong>STL</strong>，<strong>boost</strong> 等，能够熟练定位出各种C++问题；</p><p>我熟悉 <strong>现代C++（C11/C14/C17…）</strong> 特性，喜欢使用现代C++方式编写新代码。</p><p>我会用正则表达式</p><p>早年我在<strong>Windows</strong>平台下使用<strong>Virtual Studio</strong>进行C++开发，主要用到<strong>MFC</strong>编程，我熟悉VS工具下的C++代码编写和调试；后面主要从事<strong>Linux嵌入式</strong>开发，使用<strong>SourceInsight</strong>和<strong>VSCode</strong>，配合使用<strong>gdb</strong>，<strong>vim</strong>，<strong>top</strong>等<strong>GNU工具</strong>来调试代码、定位bug和分析性能问题，我了解 <strong>Linux Shell</strong> 基本用法，可以熟练使用 <strong>awk</strong>，<strong>sed</strong> 等常用命令或工具；</p><p>除了本职工作，我还喜欢接触新技术，对前沿热门技术有强烈的求知欲，比如：<br>我会使用 <strong>Python</strong>，配合 <strong>numpy</strong>，<strong>pandas</strong>，<strong>openpyxl</strong> 等模块，帮我分析大量数据或实现一些自动化操作，提高我的本职工作效率。</p><p>我可以写出高质量的代码，因为:<br>我熟悉大部分<strong>算法</strong>，可以写出高效率的代码<br>我熟悉大多数<strong>设计模式</strong>，可以写出易维护，易扩展的代码；<br>我有良好的<strong>编程习惯</strong>，可以写出干净，可读性高的代码；<br>我熟悉<strong>重构</strong>，维护代码的稳定健康；<br>我熟练使用<strong>GIT</strong>并有良好的上库习惯，能做到代码层面从分溯源  </p><p>我喜欢总结分享经验，熟练使用 <strong>Markdown</strong> 和 <strong>UML</strong> 流程图等工具，发布给大家学习交流。<br>我为人谨慎细心，倾向于先对齐需求并保证代码bugfree的基础上实现更快交付，可能我的交付不是最快的，但问题是最少的，返工率定，修改也是最好改正的。<br>我有强烈的责任心，事情没有做到我满意的程度我不好意思回家。</p><h2 id="小目标"><a href="#小目标" class="headerlink" title="小目标"></a>小目标</h2><p>我还不熟悉多线程编程和网络编程，进程间通信业不是太了解，比如锁，信号量，中断啥的，多线程我理解概念，但实际上没怎么使用过。进程间通信我可能在我不知道的状态下已经用过了。<br>我还不会用Makefile构建项目<br>不会部署CI环境，如代码静态动态检查，鹰眼等<br>不会写单元测试，即测试驱动开发<br>不会用Wireshark等抓包工具分析网络报文<br>不熟悉Linux下面的环境变量，常用信号量<br>我还不晓得Docker是什么鬼，大数据和人工智能也不甚了解。<br>我还初步了解了Go和Rust；<br>我还要学习一下前端工具，JavaScript和Typescript等，熟悉一些前端框架，Vue和Nodejs等，支持我实现一些自开发工具的前端显示；</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;技术能力&quot;&gt;&lt;a href=&quot;#技术能力&quot; class=&quot;headerlink&quot; title=&quot;技术能力&quot;&gt;&lt;/a&gt;技术能力&lt;/h2&gt;&lt;p&gt;我熟悉&lt;strong&gt;C语言&lt;/strong&gt;，能熟练使用指针；&lt;/p&gt;
+&lt;p&gt;我熟悉&lt;strong&gt;C++&lt;/strong
+      
+    
+    </summary>
+    
+    
+    
+      <category term="Misc" scheme="http://yoursite.com/tags/Misc/"/>
+    
+  </entry>
   
   <entry>
     <title>Regex 速查表和常用技巧总结</title>
