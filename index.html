@@ -140,9 +140,9 @@ $
       </div>
     </div>
 
-    <div class="card" onclick="location.href='/2020/05/16/%E4%BD%BF%E7%94%A8Pandas%E5%A4%84%E7%90%86Excel%E6%93%8D%E4%BD%9C%E6%80%BB%E7%BB%93/'">
+    <div class="card" onclick="location.href='/2020/05/16/%E4%BD%BF%E7%94%A8Pandas%E5%A4%84%E7%90%86Excel%E7%9A%84%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/'">
       <div class="card-title">
-        使用Pandas处理Excel操作总结
+        使用Pandas处理Excel的常用操作
       </div>
       <div class="card-tag">
         
@@ -155,7 +155,11 @@ $
       </div>
       <div class="card-text">
         
-          去年年底从开发岗转到维护岗后，工作中需要处理大量的 Excel 表格，由于之前做开发的时候很少接触 Excel，对于它的认知也就是会使用 SUM 这些简单的公式，VBA 更是没有接触过了，面对大量的 Excel 文档和他们动辄几万行的数据，人工处理实在是太浪费时间了，还好之前自学过一点 Py ...
+          读取 Excel 文件读取 Excel 文件的方法是 read_excel()
+import pandas as pd
+fd = pd.read_excel(&#39;Workbook.xlsx&#39;)
+print(fd)
+第一个参数填写 Excel 文件的路径，第二个参数填写需要打开的 ...
         
       </div>
     </div>
