@@ -56,7 +56,8 @@ print(fd)</code></pre>
 <p>默认的保存方式得到的 Excel 表格是带有 index （可以简单理解为原始数据的行号，不过是以 0 开头）和 header （可以理解为列标题），如果不需要它们，将参数 <code>index</code> 和 <code>header</code> 设置为 <code>False</code> 即可；</p>
 <p>保存后默认标签页名称是 「Sheet1」，可以使用 <code>sheet_name</code> 参数来指定标签页名称；</p>
 <p>对于 NaN 数据，默认是使用空字符串来保存的，如果需要修改为其他字符串，如 「–」，可以使用 <code>na_rep</code> 来修改。</p>
-<pre><code class="python">fd.to_excel(&#39;Workbook_copy.xlsx&#39;, sheet_name=&quot;foo&quot;, index=None, header=None, na_rep=&#39;--&#39;)</code></pre>
+<pre><code class="python">fd.to_excel(&#39;Workbook_copy.xlsx&#39;, sheet_name=&quot;foo&quot;, index=None,
+            header=None, na_rep=&#39;--&#39;)</code></pre>
 <h2 id="读取单元格内容"><a href="#读取单元格内容" class="headerlink" title="读取单元格内容"></a>读取单元格内容</h2><p>使用 <code>loc</code> 和 <code>iloc</code> 方法可以得到单元格的内容， <code>loc</code> 是基于列标签（或者说列标题）， <code>iloc</code> 基于列索引（表示从 0 开始数的第几列）。</p>
 <p>比如如下代码读取第 3 行第 1 列的单元格内容</p>
 <pre><code class="python">fd.loc[3,[&#39;列1&#39;]]  # or
