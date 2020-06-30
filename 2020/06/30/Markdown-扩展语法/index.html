@@ -1,0 +1,158 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Markdown 扩展语法 | cat coding_life.log</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.17.1/styles/railscasts.css">
+    <link rel="stylesheet" href="/lightx.css"/>
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="apple-touch-icon" href="/icon512.png">
+    <meta name="theme-color" content="#ffffff"/>
+    
+  <meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="cat coding_life.log" type="application/atom+xml">
+</head>
+  <body>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function () {
+          navigator.serviceWorker.register('/sw.js', {scope: '/'})
+            .then(function (registration) {
+              // console.log('ServiceWorker registration successful with scope: ', registration.scope);
+            })
+            .catch(function (err) {
+              console.log('ServiceWorker registration failed: ', err);
+            });
+        });
+      }
+    </script>
+  <div id="page-container">
+    <div id="content-wrap">
+      <div class="wrapper">
+        <div class="container">
+            <nav>
+    <ul>
+      <li><a href="/">cat coding_life.log</a></li>
+      <li><a href="/archives">Archives</a></li>
+      <li><a href="/about">About</a></li>
+    </ul>
+</nav>
+
+            <article>
+  <h1>Markdown 扩展语法</h1>
+  <div class="contents">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#高亮"><span class="toc-text">高亮</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#在表格中换行"><span class="toc-text">在表格中换行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#上标和下标"><span class="toc-text">上标和下标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#注脚"><span class="toc-text">注脚</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#锚"><span class="toc-text">锚</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Emoji"><span class="toc-text">Emoji</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CheckBox"><span class="toc-text">CheckBox</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数学公式"><span class="toc-text">数学公式</span></a></li></ol>
+  </div>
+  <p>Markdown 的一些很实用的扩展语法，并非所有 Markdown 编辑器都能支持，比如在笔者写这篇文章时，VSCode 还不支持上标下标但支持注脚和锚的跳转，Typora 支持上标下标但不支持注脚和锚跳转。如果都都支持，就是比较强的 Markdown 编辑器了，比如说 Joplin。</p>
+<h2 id="高亮"><a href="#高亮" class="headerlink" title="高亮"></a>高亮</h2><p>把文本价在一对 <code>==</code> 之间就可以高亮文本了，高亮很多编辑器支持的，但它其实是扩展语法，还是有部分编辑器不支持的，比如 VSCode</p>
+<table>
+<thead>
+<tr>
+<th>Markdown 代码</th>
+<th>Markdown 显示</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>==需要高亮的文本==</code></td>
+<td>==需要高亮的文本==</td>
+</tr>
+</tbody></table>
+<h2 id="在表格中换行"><a href="#在表格中换行" class="headerlink" title="在表格中换行"></a>在表格中换行</h2><p>在需要换行的地方，插入 <code>&lt;br&gt;</code> 即可</p>
+<table>
+<thead>
+<tr>
+<th>Markdown 代码</th>
+<th>Markdown 显示</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>大道至简&lt;br&gt;知易行难</code></td>
+<td>大道至简<br/>知易行难</td>
+</tr>
+</tbody></table>
+<h2 id="上标和下标"><a href="#上标和下标" class="headerlink" title="上标和下标"></a>上标和下标</h2><table>
+<thead>
+<tr>
+<th>Markdown 代码</th>
+<th>Markdown 显示</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>2^8^</code></td>
+<td>2^8^</td>
+</tr>
+<tr>
+<td><code>H~2~O</code></td>
+<td>H<del>2</del>O</td>
+</tr>
+</tbody></table>
+<p>有的编辑器会把下标的写法解释成删除线……比如 Jupyter，但一般来说使用一对 <code>~~</code> 夹住的文本才是删除线语法，而不应该是一对 <code>~</code>,不应该被删除才对</p>
+<h2 id="注脚"><a href="#注脚" class="headerlink" title="注脚"></a>注脚</h2><table>
+<thead>
+<tr>
+<th></th>
+<th>Markdown 代码</th>
+<th>Markdown 显示</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>正文</td>
+<td><code>草[^1]</code></td>
+<td>草<a href="草：一种植物">^1</a></td>
+</tr>
+<tr>
+<td>注脚</td>
+<td><code>[^1]:草：一种植物</code></td>
+<td>写在表格里就没有效果了，于是写在下面了</td>
+</tr>
+</tbody></table>
+<p>注脚 VSCode 和 Joplin 做的很好，无论你将注脚写在正文后哪里，显示的注脚都是放在文末的，点击注脚，还能方便的跳转；</p>
+<p>而 Typora 就不太让人满意了，要自行放在文末，还不支持跳转，但是鼠标悬浮在注脚上时，有气泡内容显示注释，如果注释文本较长的话也不太方便。</p>
+<h2 id="锚"><a href="#锚" class="headerlink" title="锚"></a>锚</h2><p><a href="#link">跳转到页脚</a></p>
+<h2 id="Emoji"><a href="#Emoji" class="headerlink" title="Emoji"></a>Emoji</h2><p>:smile:</p>
+<h2 id="CheckBox"><a href="#CheckBox" class="headerlink" title="CheckBox"></a>CheckBox</h2><ul>
+<li><input disabled="" type="checkbox"> item1</li>
+<li><input checked="" disabled="" type="checkbox"> item2</li>
+</ul>
+<h2 id="数学公式"><a href="#数学公式" class="headerlink" title="数学公式"></a>数学公式</h2><p>$$<br>\frac{x+y}{y+z}<br>$$</p>
+<p><a id=link>我是页脚</a></p>
+
+  
+  <p class="copyright"><strong>Links: <a href="http://yoursite.com/2020/06/30/Markdown-%E6%89%A9%E5%B1%95%E8%AF%AD%E6%B3%95/">http://yoursite.com/2020/06/30/Markdown-%E6%89%A9%E5%B1%95%E8%AF%AD%E6%B3%95/</a></strong></p>  
+</article>
+
+<div id="comment">
+    
+</div>
+        </div>
+      </div>
+    </div>
+    <div id="footer">
+      <div class="wrapper">
+        <div class="container">
+          
+<button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">TOP</button>
+<footer>
+    <div>
+        <p>
+            © 2020 <a href="http://yoursite.com">antisamael</a>.
+            Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>.
+            Theme <a href="https://github.com/songquanpeng/hexo-theme-lightx" target="_blank" rel="noopener">lightx</a>.
+            
+        </p>
+    </div>
+</footer>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@latest/build/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  </body>
+</html>
