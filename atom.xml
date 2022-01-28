@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-06-30T15:48:22.869Z</updated>
+  <updated>2022-01-28T17:57:23.724Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>DeDRM Kindle 电子书</title>
+    <link href="http://yoursite.com/2022/01/29/DeDRM-Kindle-%E7%94%B5%E5%AD%90%E4%B9%A6/"/>
+    <id>http://yoursite.com/2022/01/29/DeDRM-Kindle-%E7%94%B5%E5%AD%90%E4%B9%A6/</id>
+    <published>2022-01-28T17:53:55.000Z</published>
+    <updated>2022-01-28T17:57:23.724Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li>准备工具：<ul><li><a href="https://calibre-ebook.com/download" target="_blank" rel="noopener">Calibre</a></li><li><a href="https://github.com/apprenticeharper/DeDRM_tools/releases" target="_blank" rel="noopener">DeDRM 插件</a>（不再更新）或 <a href="https://github.com/noDRM/DeDRM_tools/releases" target="_blank" rel="noopener">DeDRM fork</a>（目前还在更新的 fork 版本）</li></ul></li><li>Calibre 安装 DeDRM 插件<ul><li>解压 DeDRM_tools_xxx.zip 文件，找到 DeDRM_Plugin.zip</li><li>打开 Calibre &gt; 首选项 &gt; 插件 &gt; 从文件加载插件(L)</li><li>选择 DeDRM_Plugin.zip （注意不是 DeDRM_tools_xxx.zip）</li></ul></li><li>配置 DeDRM 插件<ul><li>查找 Kindle 序列号：登录亚马逊账号 &gt; 我的账户 &gt; 管理我的内容和设备 &gt; 我的设备</li><li>打开 Calibre 插件页面，查找 DeDRM 插件，双击进入配置界面，点击 eInk Kindle ebooks，填入序列号</li></ul></li><li>使用<ul><li>从亚马逊或其他渠道下载 Kindle 电子书（asw3 格式）</li><li>直接将 asw3 文件拖入 Calibre，即可自动解锁</li></ul></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ul&gt;
+&lt;li&gt;准备工具：&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://calibre-ebook.com/download&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Calibre&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://git
+      
+    
+    </summary>
+    
+    
+    
+      <category term="奇技淫巧" scheme="http://yoursite.com/tags/%E5%A5%87%E6%8A%80%E6%B7%AB%E5%B7%A7/"/>
+    
+  </entry>
   
   <entry>
     <title>Markdown 扩展语法</title>
@@ -67,11 +94,11 @@
     
     
     
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
       <category term="Regex" scheme="http://yoursite.com/tags/Regex/"/>
     
       <category term="正则表达式" scheme="http://yoursite.com/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
-    
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
     
   </entry>
   
