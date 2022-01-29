@@ -1,50 +1,228 @@
-
 <!DOCTYPE html>
 <html lang="zh-CN">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Markdown 扩展语法 | cat coding_life.log</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.17.1/styles/railscasts.css">
-    <link rel="stylesheet" href="/lightx.css"/>
-    <link rel="manifest" href="/manifest.json" />
-    <link rel="apple-touch-icon" href="/icon512.png">
-    <meta name="theme-color" content="#ffffff"/>
-    
-  <meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="cat coding_life.log" type="application/atom+xml">
-</head>
-  <body>
-    <script>
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', function () {
-          navigator.serviceWorker.register('/sw.js', {scope: '/'})
-            .then(function (registration) {
-              // console.log('ServiceWorker registration successful with scope: ', registration.scope);
-            })
-            .catch(function (err) {
-              console.log('ServiceWorker registration failed: ', err);
-            });
-        });
-      }
-    </script>
-  <div id="page-container">
-    <div id="content-wrap">
-      <div class="wrapper">
-        <div class="container">
-            <nav>
-    <ul>
-      <li><a href="/">cat coding_life.log</a></li>
-      <li><a href="/archives">Archives</a></li>
-      <li><a href="/about">About</a></li>
-    </ul>
-</nav>
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.0.0">
 
-            <article>
-  <h1>Markdown 扩展语法</h1>
-  <div class="contents">
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#高亮"><span class="toc-text">高亮</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#在表格中换行"><span class="toc-text">在表格中换行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#上标和下标"><span class="toc-text">上标和下标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#注脚"><span class="toc-text">注脚</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#锚"><span class="toc-text">锚</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Emoji"><span class="toc-text">Emoji</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CheckBox"><span class="toc-text">CheckBox</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数学公式"><span class="toc-text">数学公式</span></a></li></ol>
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"yoursite.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.9.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":"default","bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<meta name="description" content="Markdown 的一些很实用的扩展语法，并非所有 Markdown 编辑器都能支持，比如在笔者写这篇文章时，VSCode 还不支持上标下标但支持注脚和锚的跳转，Typora 支持上标下标但不支持注脚和锚跳转。如果都都支持，就是比较强的 Markdown 编辑器了，比如说 Joplin。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Markdown 扩展语法">
+<meta property="og:url" content="http://yoursite.com/2020/06/30/Markdown-%E6%89%A9%E5%B1%95%E8%AF%AD%E6%B3%95/index.html">
+<meta property="og:site_name" content="$ cat life.log|">
+<meta property="og:description" content="Markdown 的一些很实用的扩展语法，并非所有 Markdown 编辑器都能支持，比如在笔者写这篇文章时，VSCode 还不支持上标下标但支持注脚和锚的跳转，Typora 支持上标下标但不支持注脚和锚跳转。如果都都支持，就是比较强的 Markdown 编辑器了，比如说 Joplin。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-06-29T17:32:15.000Z">
+<meta property="article:modified_time" content="2022-01-29T08:23:51.830Z">
+<meta property="article:author" content="antisamael">
+<meta property="article:tag" content="Markdown">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://yoursite.com/2020/06/30/Markdown-%E6%89%A9%E5%B1%95%E8%AF%AD%E6%B3%95/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://yoursite.com/2020/06/30/Markdown-%E6%89%A9%E5%B1%95%E8%AF%AD%E6%B3%95/","path":"2020/06/30/Markdown-扩展语法/","title":"Markdown 扩展语法"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Markdown 扩展语法 | $ cat life.log|</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="$ cat life.log|" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
   </div>
-  <p>Markdown 的一些很实用的扩展语法，并非所有 Markdown 编辑器都能支持，比如在笔者写这篇文章时，VSCode 还不支持上标下标但支持注脚和锚的跳转，Typora 支持上标下标但不支持注脚和锚跳转。如果都都支持，就是比较强的 Markdown 编辑器了，比如说 Joplin。</p>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">$ cat life.log|</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%AB%98%E4%BA%AE"><span class="nav-number">1.</span> <span class="nav-text">高亮</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9C%A8%E8%A1%A8%E6%A0%BC%E4%B8%AD%E6%8D%A2%E8%A1%8C"><span class="nav-number">2.</span> <span class="nav-text">在表格中换行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8A%E6%A0%87%E5%92%8C%E4%B8%8B%E6%A0%87"><span class="nav-number">3.</span> <span class="nav-text">上标和下标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%E8%84%9A"><span class="nav-number">4.</span> <span class="nav-text">注脚</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%94%9A"><span class="nav-number">5.</span> <span class="nav-text">锚</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Emoji"><span class="nav-number">6.</span> <span class="nav-text">Emoji</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CheckBox"><span class="nav-number">7.</span> <span class="nav-text">CheckBox</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F"><span class="nav-number">8.</span> <span class="nav-text">数学公式</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">antisamael</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/antisamael" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;antisamael" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/antisamael" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;antisamael" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i>Weibo</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/antisamael" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/30/Markdown-%E6%89%A9%E5%B1%95%E8%AF%AD%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="antisamael">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="$ cat life.log|">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Markdown 扩展语法
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-06-30 01:32:15" itemprop="dateCreated datePublished" datetime="2020-06-30T01:32:15+08:00">2020-06-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-01-29 16:23:51" itemprop="dateModified" datetime="2022-01-29T16:23:51+08:00">2022-01-29</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>Markdown 的一些很实用的扩展语法，并非所有 Markdown 编辑器都能支持，比如在笔者写这篇文章时，VSCode 还不支持上标下标但支持注脚和锚的跳转，Typora 支持上标下标但不支持注脚和锚跳转。如果都都支持，就是比较强的 Markdown 编辑器了，比如说 Joplin。</p>
+<span id="more"></span>
+
 <h2 id="高亮"><a href="#高亮" class="headerlink" title="高亮"></a>高亮</h2><p>把文本价在一对 <code>==</code> 之间就可以高亮文本了，高亮很多编辑器支持的，但它其实是扩展语法，还是有部分编辑器不支持的，比如 VSCode</p>
 <table>
 <thead>
@@ -118,41 +296,75 @@
 <h2 id="数学公式"><a href="#数学公式" class="headerlink" title="数学公式"></a>数学公式</h2><p>$$<br>\frac{x+y}{y+z}<br>$$</p>
 <p><a id=link>我是页脚</a></p>
 
-  
-  <p class="copyright"><strong>Links: <a href="http://yoursite.com/2020/06/30/Markdown-%E6%89%A9%E5%B1%95%E8%AF%AD%E6%B3%95/">http://yoursite.com/2020/06/30/Markdown-%E6%89%A9%E5%B1%95%E8%AF%AD%E6%B3%95/</a></strong></p>  
-</article>
+    </div>
 
-<div id="comment">
     
-</div>
-        </div>
-      </div>
-    </div>
-    <div id="footer">
-      <div class="wrapper">
-        <div class="container">
-          
-<button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">TOP</button>
-<footer>
-    <div>
-        <p>
-            © 2022 <a href="http://yoursite.com">antisamael</a>.
-            Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>.
-            Theme <a href="https://github.com/songquanpeng/hexo-theme-lightx" target="_blank" rel="noopener">lightx</a>.
-            
-        </p>
-    </div>
-</footer>
+    
+    
 
-        </div>
-      </div>
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Markdown/" rel="tag"><i class="fa fa-tag"></i> Markdown</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/06/23/Regex%E9%80%9F%E6%9F%A5%E8%A1%A8%E5%92%8C%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7%E6%80%BB%E7%BB%93/" rel="prev" title="Regex 速查表和常用技巧总结">
+                  <i class="fa fa-chevron-left"></i> Regex 速查表和常用技巧总结
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/01/29/DeDRM-Kindle-%E7%94%B5%E5%AD%90%E4%B9%A6/" rel="next" title="DeDRM Kindle 电子书">
+                  DeDRM Kindle 电子书 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-fish"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">antisamael</span>
+</div>
+
     </div>
-  </div>
+  </footer>
+
   
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
   
-  <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@latest/build/highlight.min.js"></script>
-  <script>
-    hljs.initHighlightingOnLoad();
-  </script>
-  </body>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
 </html>
