@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2022-01-29T08:21:38.061Z</updated>
+  <updated>2022-03-05T19:10:58.440Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,20 +17,49 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>联想SP8平板刷机</title>
+    <link href="http://yoursite.com/2022/03/06/%E8%81%94%E6%83%B3SP8%E5%B9%B3%E6%9D%BF%E5%88%B7%E6%9C%BA/"/>
+    <id>http://yoursite.com/2022/03/06/%E8%81%94%E6%83%B3SP8%E5%B9%B3%E6%9D%BF%E5%88%B7%E6%9C%BA/</id>
+    <published>2022-03-05T19:02:32.000Z</published>
+    <updated>2022-03-05T19:10:58.440Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="线刷-TWRP"><a href="#线刷-TWRP" class="headerlink" title="线刷 TWRP"></a>线刷 TWRP</h2><ul><li>下载并安装驱动，两个都装上<ul><li><a href="https://pan.baidu.com/s/1UW0HnK_05MvHMKzGq_Fy2A?tw84">LenovoUsbDriver_autorun_1.0.16.exe</a></li><li><a href="https://pan.baidu.com/s/1jjKOqc1eEms_P694_cdvfg?r5vp">Qualcomm_Diag_QD_Loader_2016_driver.exe</a></li></ul></li><li>下载 <a href="https://pan.baidu.com/s/1EtBynCElpvBUV-TKwNFzLQ?pwd=6bir">TWRP-3.2.3-0308-LENOVO_P8(8703F)-CN-wzsx150-QPST.7z</a>，解压，一会要用</li><li>下载并安装线刷工具 <a href="https://pan.baidu.com/s/1vzzuO6DtA6TCCVkBEZS2zA?a1t6">QPST</a>，安装好后打开它</li><li>按住平板的音量上，用USB连接电脑</li><li>QFIL（QPST）会提醒选择端口，选择9008端口，然后：<ul><li>Build Type：选 Flat Build</li><li>Programmer：选择刚解压的 TWRP 文件夹中的 <code>prog_emmc_firehose_8953_ddr.mbn</code></li><li>Download：点击 Load XML ，依次选 TWRP 文件夹中的 <code>rawprogram0.xml</code> 和 <code>patch0.xml</code></li><li>点击 Download</li></ul></li><li>最后 Status 中应看见成功（英文）字样</li></ul><h2 id="卡刷指定-TWRP"><a href="#卡刷指定-TWRP" class="headerlink" title="卡刷指定 TWRP"></a>卡刷指定 TWRP</h2><p>安装非官方系统必须使用文件名为 twrp-tb8703-3.2.1-20180825-bootsign.img 的 TWRP，其他 TWRP 均无法正常启动，在 QFIL 中操作完毕后，如果没有单独改设置为刷完自动重启的话，此时设备应仍处于 9008模式。</p><ul><li>下载 <a href="https://pan.baidu.com/s/1V22KeJy54Jq-WOPQmI9Vyg?pwd=bjgp">twrp-tb8703-3.2.1-20180825-bootsign.img</a>，然后放入 SP8 的内存卡中</li><li>断开电脑与SP8的连接，长按音量上和开机键强制关机后直接开机进入REC</li><li>卡刷 <code>twrp-tb8703-3.2.1-20180825-bootsign.img</code> 到 REC</li><li>重启重新进入 REC，后面就可以刷其他 ROM 了，我刷的是 <a href="https://pan.baidu.com/s/1RERBcXh5Ct3hI5UP18H-Mw?pwd=69m7">Lineage 17</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;线刷-TWRP&quot;&gt;&lt;a href=&quot;#线刷-TWRP&quot; class=&quot;headerlink&quot; title=&quot;线刷 TWRP&quot;&gt;&lt;/a&gt;线刷 TWRP&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;下载并安装驱动，两个都装上&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://pan.b
+      
+    
+    </summary>
+    
+    
+    
+      <category term="奇技淫巧" scheme="http://yoursite.com/tags/%E5%A5%87%E6%8A%80%E6%B7%AB%E5%B7%A7/"/>
+    
+  </entry>
+  
+  <entry>
     <title>DeDRM Kindle 电子书</title>
     <link href="http://yoursite.com/2022/01/29/DeDRM-Kindle-%E7%94%B5%E5%AD%90%E4%B9%A6/"/>
     <id>http://yoursite.com/2022/01/29/DeDRM-Kindle-%E7%94%B5%E5%AD%90%E4%B9%A6/</id>
     <published>2022-01-28T17:53:55.000Z</published>
-    <updated>2022-01-29T08:21:38.061Z</updated>
+    <updated>2022-02-22T14:32:56.916Z</updated>
     
-    <content type="html"><![CDATA[<ul><li>准备工具：<ul><li><a href="https://calibre-ebook.com/download">Calibre</a></li><li><a href="https://github.com/apprenticeharper/DeDRM_tools/releases">DeDRM 插件</a>（不再更新）或 <a href="https://github.com/noDRM/DeDRM_tools/releases">DeDRM fork</a>（目前还在更新的 fork 版本）<span id="more"></span></li></ul></li><li>Calibre 安装 DeDRM 插件<ul><li>解压 DeDRM_tools_xxx.zip 文件，找到 DeDRM_Plugin.zip</li><li>打开 Calibre &gt; 首选项 &gt; 插件 &gt; 从文件加载插件(L)</li><li>选择 DeDRM_Plugin.zip （注意不是 DeDRM_tools_xxx.zip）</li></ul></li><li>配置 DeDRM 插件<ul><li>查找 Kindle 序列号：登录亚马逊账号 &gt; 我的账户 &gt; 管理我的内容和设备 &gt; 我的设备</li><li>打开 Calibre 插件页面，查找 DeDRM 插件，双击进入配置界面，点击 eInk Kindle ebooks，填入序列号</li></ul></li><li>使用<ul><li>从亚马逊或其他渠道下载 Kindle 电子书（asw3 格式）</li><li>直接将 asw3 文件拖入 Calibre，即可自动解锁</li></ul></li></ul>]]></content>
+    <content type="html"><![CDATA[<ul><li>准备工具：<ul><li><a href="https://calibre-ebook.com/download">Calibre</a></li><li>DeDRM插件 <a href="https://github.com/noDRM/DeDRM_tools/releases">noDRM&#x2F;DeDRM_tools</a>（目前还在更新的 fork）</li></ul></li><li>Calibre 安装 DeDRM 插件<ul><li>解压 DeDRM_tools_xxx.zip 文件，找到 DeDRM_Plugin.zip</li><li>打开 Calibre &gt; 首选项 &gt; 插件 &gt; 从文件加载插件(L)</li><li>选择 DeDRM_Plugin.zip （注意不是 DeDRM_tools_xxx.zip）</li></ul></li><li>配置 DeDRM 插件<ul><li>查找 Kindle 序列号：登录亚马逊账号 &gt; 我的账户 &gt; 管理我的内容和设备 &gt; 我的设备</li><li>打开 Calibre 插件页面，查找 DeDRM 插件，双击进入配置界面，点击 eInk Kindle ebooks，填入序列号</li></ul></li><li>使用<ul><li>从亚马逊或其他渠道下载 Kindle 电子书（asw3 格式）</li><li>直接将 asw3 文件拖入 Calibre，即可自动解锁</li></ul></li></ul>]]></content>
     
     <summary type="html">
     
-      &lt;ul&gt;
+      
+      
+        &lt;ul&gt;
 &lt;li&gt;准备工具：&lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;https://calibre-ebook.com/download&quot;&gt;Calibre&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/apprenticeharper/DeDRM_tools/releases&quot;&gt;DeDRM 插件&lt;/a&gt;（不再更新）或 &lt;a href=&quot;https://github.com/noDRM/DeDRM_tools/releases&quot;&gt;DeDRM fork&lt;/a&gt;（目前还在更新的 fork 版本）
+&lt;li&gt;DeDRM插件 &lt;a href=&quot;https://github.com/noDRM/DeDRM_too
+      
     
     </summary>
     
